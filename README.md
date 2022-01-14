@@ -18,7 +18,6 @@ Lembre-se que isso é um teste técnico e como tal não existe uma única soluç
 - A organização e legibilidade do código. Nós teremos que ler o seu código e quanto mais fácil for nos localizar e ler o seu código mais pontos nós daremos para o seu teste.
 - Os teste de funcionalidade. Um código testado é um código feliz e duradouro. Pontos para o candidato.
 - O uso das ferramentas. Se uma ferramenta pode cortar o seu tempo de serviço pela metade USE, se uma ferramenta for usada use bem. Pontos extra para o bom uso de versionamento ou qualquer ferramenta usada e documentada.
-
 ## Descrição
 
 ### Contexto
