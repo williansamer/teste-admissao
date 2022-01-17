@@ -21,7 +21,7 @@ export class AuthenticateClientService{
       throw new Error("User does not exist")
     }
 
-    const comparePassword = compare(password, userExist.password)
+    const comparePassword = await compare(password, userExist.password)
 
     if(!comparePassword){
       throw new Error("Password incorrect")

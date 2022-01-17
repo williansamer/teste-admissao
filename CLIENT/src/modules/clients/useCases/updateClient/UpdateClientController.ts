@@ -3,14 +3,14 @@ import { UpdateClientService } from "./UpdateClientService";
 
 export class UpdateClientController {
   async handle(request: Request, response: Response) {
-    const { id } = request.params;
+    const { id_client } = request;
     const { username, password, name, address, birthday, cpf } = request.body;
 
     const updateClientService = new UpdateClientService();
 
     try {
       const result = await updateClientService.execute({
-        id,
+        id: id_client,
         username,
         password,
         name,

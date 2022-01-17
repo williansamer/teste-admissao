@@ -12,7 +12,6 @@ interface ICreateClient {
 
 export class CreateClientService{
   async execute({username, password, name, address, birthday, cpf}: ICreateClient){
-    console.log("olá Service")
     const clientExist = await prisma.client.findFirst({
       where: {
         username: {
