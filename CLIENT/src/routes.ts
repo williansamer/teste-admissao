@@ -6,10 +6,12 @@ import { DeleteClientController } from "./modules/clients/useCases/deleteClient/
 import { ShowClientController } from "./modules/clients/useCases/showClient/ShowClientController";
 import { UpdateClientController } from "./modules/clients/useCases/updateClient/UpdateClientController";
 import { CreateOperationController } from "./modules/operations/useCases/createOperation/CreateOperationController";
+import { ShowOperationController } from "./modules/operations/useCases/showOperation/ShowOperationController";
 
 const routes = Router();
 
 routes.get("/showClients", new ShowClientController().handle)
+routes.get("/showOperations", ensureAuthenticateClient , new ShowOperationController().handle)
 
 routes.post("/createClient", new CreateClientController().handle)
 routes.post("/authClient", new AuthenticateClientController().handle);
