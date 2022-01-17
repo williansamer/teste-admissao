@@ -10,16 +10,59 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model Client{
-  id              String        @id @default(uuid())
-  username        String        @unique
-  password        String        
-  name            String
-  address         String
-  birthday        String
-  cpf             String
-  created_at      DateTime      @default(now())
+model Client {
+  id         String   @id @default(uuid())
+  username   String   @unique
+  password   String
+  name       String
+  address    String
+  birthday   String
+  cpf        String
+  created_at DateTime @default(now())
 
+  operations Operation[]
   @@map("clients")
 }
 
+model Operation {
+  id         String   @id @default(uuid())
+  client     Client   @relation(fields: [id_client], references: [id])
+  name_operation  String
+  value      Float
+  preference Int
+  opened     Boolean  @default(true)
+  reserved   Boolean  @default(false)
+  done       Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  id_client      String
+  sub_operations SubOperation[]
+  packages       Package[]
+  @@map("operations")
+}
+
+model SubOperation {
+  id         String     @id @default(uuid())
+  operation  Operation @relation(fields: [operation_id], references: [id])
+  value      Float
+  preference Int
+  opened     Boolean    @default(true)
+  reserved   Boolean    @default(false)
+  done       Boolean    @default(false)
+  created_at DateTime   @default(now())
+
+  operation_id String
+  @@map("sub_operations")
+}
+
+model Package {
+  id         String     @id @default(uuid())
+  operation  Operation @relation(fields: [operation_id], references: [id])
+  value      Float
+  preference Int
+  created_at DateTime   @default(now())
+  closed_at  DateTime
+
+  operation_id String
+  @@map("packages")
+}
