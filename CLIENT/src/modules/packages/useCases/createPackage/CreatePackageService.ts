@@ -13,21 +13,41 @@ export class CreatePackageService{
       }
     })
 
-    if(getOperation){
-      const result = await prisma.package.create({
-        data:{
-          id_client,
-          id_operation,
-          value: getOperation.value,
-          preference: getOperation.preference
-        },
-        include: {
-          operation: true
-        }
-      })
 
-      
-    return result
+    if(getOperation){
+      if(getOperation.value > 5000){
+        const limitedValue = 5000
+        const rest = (getOperation.value - limitedValue);
+
+        const resultPackage = await prisma.package.create({
+          data:{
+            id_client,
+            id_operation,
+            value: limitedValue,
+            preference: getOperation.preference,
+            rest: rest
+          },
+          include: {
+            operation: true
+          }
+        })
+
+        return resultPackage
+      } else{
+        const resultPackage = await prisma.package.create({
+          data:{
+            id_client,
+            id_operation,
+            value: getOperation.value,
+            preference: getOperation.preference
+          },
+          include: {
+            operation: true
+          }
+        })
+
+      return resultPackage
+      }
     } else{
       throw new Error("Operation does not have a value and/or any preference of money!!!")
     }

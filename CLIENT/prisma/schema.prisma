@@ -20,8 +20,9 @@ model Client {
   cpf        String
   created_at DateTime @default(now())
 
-  packages   Package[]
-  operations Operation[]
+  operations   Operation[]
+  packages     Package[]
+  sub_packages SubPackage[]
   @@map("clients")
 }
 
@@ -36,36 +37,41 @@ model Operation {
   done           Boolean  @default(false)
   created_at     DateTime @default(now())
 
-  id_client      String
-  sub_operations SubOperation[]
-  packages       Package[]
+  id_client    String
+  packages     Package[]
+  sub_packages SubPackage[]
   @@map("operations")
-}
-
-model SubOperation {
-  id         String    @id @default(uuid())
-  operation  Operation @relation(fields: [id_operation], references: [id])
-  value      Float
-  preference Int
-  opened     Boolean   @default(true)
-  reserved   Boolean   @default(false)
-  done       Boolean   @default(false)
-  created_at DateTime  @default(now())
-
-  id_operation String
-  @@map("sub_operations")
 }
 
 model Package {
   id         String    @id @default(uuid())
-  operation  Operation @relation(fields: [id_operation], references: [id])
   client     Client    @relation(fields: [id_client], references: [id])
+  operation  Operation @relation(fields: [id_operation], references: [id])
   value      Float
   preference Int
+  rest       Float?
   created_at DateTime  @default(now())
   closed_at  DateTime?
 
   id_client    String
   id_operation String
+  sub_packages SubPackage[]
   @@map("packages")
+}
+
+model SubPackage {
+  id         String    @id @default(uuid())
+  client     Client    @relation(fields: [id_client], references: [id])
+  operation  Operation @relation(fields: [id_operation], references: [id])
+  package    Package   @relation(fields: [id_package], references: [id])
+  value      Float
+  preference Int
+  rest       Float?
+  created_at DateTime  @default(now())
+  closed_at  DateTime?
+
+  id_client    String
+  id_operation String
+  id_package   String
+  @@map("sub_packages")
 }

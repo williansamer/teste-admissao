@@ -2,7 +2,7 @@ import prisma from "../../../../database/prisma"
 
 export class AllPackagesFromClientService{
   async execute(id_client: string){
-    const result = await prisma.package.findMany({
+    const resultPackage = await prisma.package.findMany({
       where: {
         id_client
       },
@@ -11,6 +11,12 @@ export class AllPackagesFromClientService{
       }
     })
 
-    return result
+    const resultSubPackage = await prisma.subPackage.findMany({
+      where: {
+        id_client
+      }
+    })
+
+    return {resultPackage, resultSubPackage}
   }
 }
