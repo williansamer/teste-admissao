@@ -7,16 +7,19 @@ import { ShowClientController } from "./modules/clients/useCases/showClient/Show
 import { UpdateClientController } from "./modules/clients/useCases/updateClient/UpdateClientController";
 import { CreateOperationController } from "./modules/operations/useCases/createOperation/CreateOperationController";
 import { ShowOperationController } from "./modules/operations/useCases/showOperation/ShowOperationController";
+import { AllPackagesFromClientController } from "./modules/packages/useCases/allPackagesFromClient/AllPackagesFromClientController";
+import { CreatePackageController } from "./modules/packages/useCases/createPackage/CreatePackageController";
 
 const routes = Router();
 
 routes.get("/showClients", new ShowClientController().handle)
 routes.get("/showOperations", ensureAuthenticateClient , new ShowOperationController().handle)
+routes.get("/allPackagesClient", ensureAuthenticateClient , new AllPackagesFromClientController().handle)
 
-routes.post("/createClient", new CreateClientController().handle)
 routes.post("/authClient", new AuthenticateClientController().handle);
-
+routes.post("/createClient", new CreateClientController().handle)
 routes.post("/createOperation", ensureAuthenticateClient, new CreateOperationController().handle);
+routes.post("/createPackage/:id", ensureAuthenticateClient , new CreatePackageController().handle)
 
 routes.put("/updateClient/", ensureAuthenticateClient , new UpdateClientController().handle);
 
