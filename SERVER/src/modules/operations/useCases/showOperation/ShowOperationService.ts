@@ -8,6 +8,9 @@ export class ShowOperationService{
       },
       include: {
         client: true
+      },
+      orderBy: {
+        created_at: "desc"
       }
     });
 

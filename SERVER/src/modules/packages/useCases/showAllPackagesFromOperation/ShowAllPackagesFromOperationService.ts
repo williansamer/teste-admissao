@@ -1,19 +1,16 @@
 import prisma from "../../../../database/prisma"
 
-export class AllPackagesFromClientService{
-  async execute(id_client: string){
+export class ShowAllPackagesFromOperationService{
+  async execute(id_operation: string){
     const resultPackage = await prisma.package.findMany({
       where: {
-        id_client
-      },
-      include: {
-        operation: true
+        id_operation
       }
     })
 
     const resultSubPackage = await prisma.subPackage.findMany({
       where: {
-        id_client
+        id_operation
       }
     })
 
