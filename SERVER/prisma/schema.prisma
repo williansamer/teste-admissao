@@ -64,7 +64,7 @@ model SubPackage {
   id         String    @id @default(uuid())
   client     Client    @relation(fields: [id_client], references: [id])
   operation  Operation @relation(fields: [id_operation], references: [id])
-  package    Package   @relation(fields: [id_package], references: [id])
+  package    Package   @relation(fields: [id_package], references: [id], onDelete: Cascade)
   value      Float
   preference Int
   rest       Float?

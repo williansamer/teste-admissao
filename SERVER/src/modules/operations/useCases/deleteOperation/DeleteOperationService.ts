@@ -7,17 +7,13 @@ export class DeleteOperationService{
         id
       }
     })
-    // console.log(findOperation)
 
     if(findOperation && !findOperation.done){
-      // console.log(findOperation)
       const result = await prisma.operation.delete({
         where: {
           id
         }
       })
-
-      console.log(result)
 
       return result
     } else{
