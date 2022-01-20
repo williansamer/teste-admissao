@@ -20,7 +20,9 @@ export class CreateSubPackageService{
     if(getPackage){
       let resultSubPackage = []
 
-      for(let getRest = rest; getRest <= 0;){
+      //console.log("oi")
+
+      for(let getRest = rest; getRest >= 0; getRest){
         const limitedValue = 5000;
         
         if(getRest > 5000){
@@ -55,39 +57,8 @@ export class CreateSubPackageService{
           resultSubPackage.push([getSubPackage])
         }
 
-        getRest === getRest - limitedValue;
+        getRest = getRest - limitedValue;
       }
-
-
-
-
-
-      // if(getPackage.value > 5000){
-      //   const limitedValue = 5000
-
-      //   const result = await prisma.package.create({
-      //     data:{
-      //       id_client,
-      //       id_operation,
-      //       value: limitedValue,
-      //       preference: getPackage.preference
-      //     },
-      //     include: {
-      //       operation: true
-      //     }
-      //   })  
-
-      //   return result
-      // } else{
-      //   const resultSubPackage = await prisma.subPackage.create({
-      //     data:{
-      //       id_client,
-      //       id_operation,
-      //       id_package,
-      //       value: rest,
-      //       preference: preference
-      //     }
-      //   })
 
       return resultSubPackage
     } else{
