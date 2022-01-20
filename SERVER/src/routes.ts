@@ -11,6 +11,7 @@ import { ShowAllPackagesFromClientController } from "./modules/packages/useCases
 import { CreatePackageController } from "./modules/packages/useCases/createPackage/CreatePackageController";
 import { ShowAllPackagesFromOperationController } from "./modules/packages/useCases/showAllPackagesFromOperation/ShowAllPackagesFromOperationController";
 import { EndPackageController } from "./modules/packages/useCases/endPackage/EndPackageController";
+import { DeleteOperationController } from "./modules/operations/useCases/deleteOperation/DeleteOperationController";
 
 const routes = Router();
 
@@ -28,5 +29,6 @@ routes.put("/updateClient", ensureAuthenticateClient , new UpdateClientControlle
 routes.put("/updateEndPackage/:id", ensureAuthenticateClient , new EndPackageController().handle);
 
 routes.delete("/deleteClient", ensureAuthenticateClient , new DeleteClientController().handle)
+routes.delete("/deleteOperation/:id", ensureAuthenticateClient, new DeleteOperationController().handle)
 
 export default routes;

@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = []
 }
 
 datasource db {
@@ -46,7 +47,7 @@ model Operation {
 model Package {
   id         String    @id @default(uuid())
   client     Client    @relation(fields: [id_client], references: [id])
-  operation  Operation @relation(fields: [id_operation], references: [id])
+  operation  Operation @relation(fields: [id_operation], references: [id], onDelete: Cascade)
   value      Float
   preference Int
   rest       Float?
