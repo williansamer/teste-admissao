@@ -1,0 +1,54 @@
+.container-section{
+  height: calc(100vh - 150px);
+  background-color: gainsboro;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container-section img{
+  height: 100%;
+}
+.section-about{
+  padding-right: 50px;
+  padding-top: 25px;
+  height: inherit;
+  width: 550px;
+  text-align: justify;
+  align-self: stretch;
+}
+.about-subtitle, .about-title{
+  height: 50px;
+}
+.about-subtitle{
+  font-size: 1.3em;
+  color: #0098a4;
+}
+.about-title{
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #0c4873;
+}
+
+@media screen and (max-width: 760px){
+  .container-section img{
+    height: 30%;
+  }
+  .section-about{
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+  .about-subtitle, .about-title{
+    height: 30px;
+  }
+  .about-subtitle{
+    font-size: 1em;
+  }
+  .about-title{
+    font-size: 1em;
+  }
+  .about-description{
+    margin-top: 25px;
+    font-size: 16px;
+  }
+}
