@@ -3,7 +3,7 @@ import "../styles/home.css";
 
 const Home: React.FC = () => {
   return (
-    <section className="container-section">
+    <section className="home-container-section">
       <img
         src="https://cdn.frentecorretora.com.br/2020/01/15191001/about_frente_mobile.png"
         alt="imagem"

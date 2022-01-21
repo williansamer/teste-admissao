@@ -1,0 +1,45 @@
+.login-container-section{
+  margin-top: -40px;
+  height: calc(100vh - 110px);
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-section-title{
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #0098a4;
+  margin-bottom: 30px;
+}
+
+.login-section-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.login-form-input-submit{
+  align-self: flex-end;
+  width: 260px;
+  text-decoration: none;
+  color: white;
+  background-color: #0c4873;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 18px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 2px 2px 2px rgb(165, 165, 165);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 760px){
+  .login-form-input-submit{
+    font-size: 0.9em;
+    font-weight: 300;
+  }
+}

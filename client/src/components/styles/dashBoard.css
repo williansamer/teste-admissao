@@ -35,6 +35,31 @@
   font-weight: 600;
   box-shadow: 2px 2px 2px rgb(165, 165, 165);
   cursor: pointer;
+  transition: all ease-out 0.3s;
+}
+.menu-button-login:hover, .menu-button-signin:hover{
+  color: #0c4873;
+  background-color: #ffffff;
+  border: solid 1px #0c4873;
+  box-shadow: 2px 2px 2px #5883a1;
+}
+
+label{
+  margin: 2px;
+}
+input{
+  margin-left: 5px;
+  font-size: 1.1em;
+  padding: 5px;
+  outline: 0;
+  border-color: gainsboro;
+  transition: all ease-out 0.3s;
+}
+input:hover{
+  color: #0c4873;
+  background-color: #ffffff;
+  border: solid 1px #0c4873;
+  box-shadow: 2px 2px 2px #5883a1;
 }
 
 @media screen and (max-width: 760px){
@@ -48,4 +73,8 @@
     font-size: 0.9em;
     font-weight: 300;
   }
+  label{
+    font-size: 0.85em;
+  }
+
 }

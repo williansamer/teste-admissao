@@ -1,12 +1,14 @@
-.container-section{
-  height: calc(100vh - 150px);
+.home-container-section{
+  margin-top: -40px;
+  height: calc(100vh - 110px);
   background-color: gainsboro;
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
 
-.container-section img{
+.home-container-section img{
   height: 100%;
 }
 .section-about{
@@ -29,9 +31,12 @@
   font-weight: bold;
   color: #0c4873;
 }
+.about-description{
+  margin-top: 50px;
+}
 
 @media screen and (max-width: 760px){
-  .container-section img{
+  .home-container-section img{
     height: 30%;
   }
   .section-about{
