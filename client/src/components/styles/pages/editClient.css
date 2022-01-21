@@ -1,0 +1,76 @@
+.edit-container-section{
+  margin-top: -40px;
+  height: calc(100vh - 110px);
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-section-title{
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #0098a4;
+  margin-bottom: 30px;
+}
+
+.edit-section-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.edit-label-input-birthday{
+  width: 263px;
+}
+
+.edit-form-input-submit{
+  align-self: flex-end;
+  width: 260px;
+  text-decoration: none;
+  color: white;
+  background-color: #0c4873;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 18px;
+  font-size: 1.1em;
+  font-weight: 600;
+  box-shadow: 2px 2px 2px rgb(165, 165, 165);
+  cursor: pointer;
+}
+.edit-form-label-email, .edit-form-label-password{
+  align-self: flex-start;
+  margin-left: 55px;
+}
+
+.edit-label-edit{
+  color: blue;
+  margin-left: 15px;
+  transition: all ease 0.3s;
+}
+
+.edit-label-edit:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 760px){
+  .edit-section-form{
+    width: 90%;
+  }
+  
+  .edit-label-input-birthday{
+    width: 219px;
+  }
+
+  .edit-form-input-submit{
+    font-size: 0.9em;
+    font-weight: 300;
+  }
+
+  .edit-form-label-email, .edit-form-label-password{
+    margin-left: 85px;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import "../styles/pages/getPackages.css"
 
 const GetPackages:React.FC = () => {
   return (

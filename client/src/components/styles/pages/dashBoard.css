@@ -44,8 +44,18 @@
   box-shadow: 2px 2px 2px #5883a1;
 }
 
+.menu-button-edit{
+  /* display: none; */
+  text-decoration: none;
+  transition: all ease 0.3s;
+}
+.menu-button-edit:hover{
+  text-decoration: underline;
+}
+
 label{
   margin: 2px;
+  display: flex;
 }
 input{
   margin-left: 5px;

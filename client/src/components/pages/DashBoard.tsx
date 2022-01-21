@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/dashBoard.css";
+import "../styles/pages/dashBoard.css";
 import { Link, Outlet } from "react-router-dom";
 
 const DashBoard: React.FC = () => {
@@ -20,6 +20,9 @@ const DashBoard: React.FC = () => {
           </Link>
           <Link className="menu-button-signin" to="/signin">
             Cadastrar
+          </Link>
+          <Link className="menu-button-edit" to="/editclient">
+            Editar
           </Link>
         </div>
       </header>

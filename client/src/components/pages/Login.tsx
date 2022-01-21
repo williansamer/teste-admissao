@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/login.css"
+import "../styles/pages/login.css"
 
 const Login:React.FC = () => {
   return (
@@ -10,11 +10,11 @@ const Login:React.FC = () => {
       <form className='login-section-form'>
         <label className='login-form-label-email'>
           Email: 
-          <input className='login-label-input-email' type="text" />
+          <input className='login-label-input-email' type="text" required />
         </label>
         <label className='login-form-label-password'>
           Senha: 
-          <input className='login-label-input-password' type="text"/>
+          <input className='login-label-input-password' type="password" required/>
         </label>
         <input className='login-form-input-submit' type="submit" />
       </form>

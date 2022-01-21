@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/pages/insertOperation.css"
 import { Outlet, Link } from "react-router-dom"
 
 const InsertOperation: React.FC = () => {
