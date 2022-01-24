@@ -8,8 +8,6 @@ type PropsModalEmail = {
 
 const ModalEmail: React.FC<PropsModalEmail> = (props) => {
 
-  console.log(props.modalEmail)
-
   function handleCloseModal(){
     props.setModalEmail(!props.modalEmail);
   }

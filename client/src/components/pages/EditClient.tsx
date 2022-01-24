@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import "../styles/pages/editClient.css"
-import { Link } from "react-router-dom"
 import ModalEmail from '../modals/ModalEmail';
 import ModalPassword from '../modals/ModalPassword';
+import ModalConfirmed from '../modals/ModalConfirmed';
 
 const EditClient:React.FC= () => {
   const [modalEmail, setModalEmail] = useState<boolean>(false);
   const [modalPassword, setModalPassword] = useState(false);
+  const [modalConfirmed, setModalConfirmed] = useState<boolean>(false);
 
   function handleEditEmail(){
     setModalEmail(!modalEmail);
@@ -16,10 +17,16 @@ const EditClient:React.FC= () => {
     setModalPassword(!modalPassword);
   }
 
+  function handleConfirmed(e: any){
+    e.preventDefault();
+    setModalConfirmed(!modalConfirmed);
+  }
+
   return (
     <section className="edit-container-section">
       {modalEmail && <ModalEmail modalEmail={modalEmail} setModalEmail={setModalEmail} />}
       {modalPassword && <ModalPassword modalPassword={modalPassword} setModalPassword={setModalPassword}/>}
+      {modalConfirmed && <ModalConfirmed modalConfirmed={modalConfirmed} setModalConfirmed={setModalConfirmed}/>}
       <div className='edit-section-title'>
         Edite os campos que deseja
       </div>
@@ -48,7 +55,7 @@ const EditClient:React.FC= () => {
           CPF: 
           <input className='edit-label-input-cpf' type="text" />
         </label>
-        <Link to={"../login"}><input className='edit-form-input-submit' type="submit" value="Confirmar" /></Link>
+        <input className='edit-form-input-submit' type="submit" value="Confirmar" onClick={handleConfirmed}/>
       </form>
     </section>
   )
