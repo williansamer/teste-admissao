@@ -17,12 +17,11 @@ const mainRoutes: React.FC = () => {
         <Route path="login" element={<Login />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="editclient" element={<EditClient />} />
+        <Route path="/insertoperation/" element={<InsertOperation />}>
+          <Route path="getoperations" element={<GetOperations />} />
+          <Route path="getpackages" element={<GetPackages />} />
+        </Route>
       </Route>
-      <Route path="/insertoperation/" element={<InsertOperation />}>
-        <Route path="getoperations" element={<GetOperations />} />
-        <Route path="getpackages" element={<GetPackages />} />
-      </Route>
-
       <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
   )

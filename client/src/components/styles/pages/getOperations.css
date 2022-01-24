@@ -1,0 +1,27 @@
+.getoperation-container-section{
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.section-lists{
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.section-lisitem{ 
+  color: rgb(103, 103, 235);
+  list-style: none;
+  background-color: whitesmoke;
+  margin-bottom: 10px;
+  padding: 9px;
+  cursor: pointer;
+}
+
+.section-lisitem span{
+  color: rgb(235, 103, 103);
+  font-weight: bold;
+}
