@@ -1,27 +1,25 @@
-import React, { Props, useState } from 'react';
+import React, { useState } from 'react';
 import "../styles/pages/editClient.css"
 import { Link } from "react-router-dom"
 import ModalEmail from '../modals/ModalEmail';
 import ModalPassword from '../modals/ModalPassword';
 
-const EditClient:React.FC = () => {
+const EditClient:React.FC= () => {
   const [modalEmail, setModalEmail] = useState<boolean>(false);
   const [modalPassword, setModalPassword] = useState(false);
 
   function handleEditEmail(){
     setModalEmail(!modalEmail);
-    console.log(modalEmail)
   }
 
   function handleEditPassword(){
     setModalPassword(!modalPassword);
-    console.log(modalPassword)
   }
 
   return (
     <section className="edit-container-section">
-      {/* {modalEmail && <ModalEmail />} */}
-      {/* <ModalPassword /> */}
+      {modalEmail && <ModalEmail modalEmail={modalEmail} setModalEmail={setModalEmail} />}
+      {modalPassword && <ModalPassword modalPassword={modalPassword} setModalPassword={setModalPassword}/>}
       <div className='edit-section-title'>
         Edite os campos que deseja
       </div>
