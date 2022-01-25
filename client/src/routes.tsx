@@ -8,6 +8,7 @@ import Home from './components/pages/Home';
 import Operations from './components/pages/Operations';
 import Login from './components/pages/Login';
 import SignIn from './components/pages/SignIn';
+import GetClients from './components/pages/GetClients';
 
 const mainRoutes: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const mainRoutes: React.FC = () => {
             <Route path="getpackages" element={<GetPackages />} />
           </Route>
         </Route>
+        <Route path="/gettingclients" element={<GetClients />} />
       </Route>
       <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>

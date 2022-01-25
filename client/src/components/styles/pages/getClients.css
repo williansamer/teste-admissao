@@ -1,0 +1,13 @@
+.all-clients{
+  background-color: white;
+  margin: 10px;
+}
+
+.each-client{
+  margin: 10px;
+  background-color: rgb(187, 187, 187);
+}
+
+h1{
+  color: rgb(238, 75, 75);
+}
