@@ -1,0 +1,11 @@
+.section-listoperations{
+  text-align: center;
+  align-self: flex-start;
+  height: 100%;
+  width: 66%;
+}
+
+.section-listoperations-list{
+  overflow-y: scroll;
+  max-height: calc(80vh - 110px);
+}

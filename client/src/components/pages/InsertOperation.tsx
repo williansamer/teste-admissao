@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import "../styles/pages/insertOperation.css"
-import { Outlet, Link } from "react-router-dom"
 
-const InsertOperation: React.FC = () => {
+const InsertOperations: React.FC = () => {
 
   const [nameOperation, setNameOperation] = useState("")
   const [getValue, setGetValue] = useState();
@@ -50,7 +49,6 @@ const InsertOperation: React.FC = () => {
   }
 
   return (
-    <section className="insertoperation-container-section">
       <div className="section-insertoperation">
         <h1 className="insertoperation-title">Criar Operação</h1>
         <form className="insertoperation-form" onSubmit={handleSubmit}>
@@ -88,17 +86,7 @@ const InsertOperation: React.FC = () => {
           <div  className="observation-default">- Cada Pacote terá o máximo de 50 notas. Se houver mais, será dividido em subpacotes</div>
         </div>
       </div>
-
-      <div className="section-listoperations">
-        <h1 className="section-listoperations-title">
-          Operações Realizadas
-        </h1>
-        <div className="section-listoperations-list">
-          <Outlet />
-        </div>
-      </div>
-    </section>
   );
 };
 
-export default InsertOperation;
+export default InsertOperations;
