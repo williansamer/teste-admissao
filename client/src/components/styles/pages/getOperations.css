@@ -12,16 +12,17 @@
   align-items: flex-start;
 }
 
-.section-lisitem{ 
-  color: rgb(103, 103, 235);
+.section-listitem{ 
+  color: black;
   list-style: none;
   background-color: whitesmoke;
   margin-bottom: 10px;
   padding: 9px;
   cursor: pointer;
+  border-radius: 25px;
 }
 
-.section-lisitem span{
-  color: rgb(235, 103, 103);
+.section-listitem span{
+  color: #0c4873;
   font-weight: bold;
 }

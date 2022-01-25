@@ -1,0 +1,24 @@
+.getpackages-container-section{
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+}
+
+.section-package{
+  margin: 5px;
+  padding: 15px;
+  background-color: rgb(252, 246, 213);
+}
+
+.package-default{
+  margin: 5px;
+}
+
+.package-name{
+  font-weight: bold;
+}
+
+.package-value{
+  color: red;
+}

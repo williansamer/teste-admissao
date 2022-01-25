@@ -24,7 +24,7 @@
   height: 100%;
 }
 
-.menu-button-login, .menu-button-signin{
+.menu-button-login, .menu-button-signin, .menu-button-operations{
   text-decoration: none;
   color: white;
   background-color: #0c4873;
@@ -37,11 +37,15 @@
   cursor: pointer;
   transition: all ease-out 0.3s;
 }
-.menu-button-login:hover, .menu-button-signin:hover{
+.menu-button-login:hover, .menu-button-signin:hover, .menu-button-operations:hover{
   color: #0c4873;
   background-color: #ffffff;
   border: solid 1px #0c4873;
   box-shadow: 2px 2px 2px #5883a1;
+}
+
+.menu-button-operations{
+  font-size: 0.7em;
 }
 
 .menu-button-edit{
