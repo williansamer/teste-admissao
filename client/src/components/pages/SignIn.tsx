@@ -3,15 +3,6 @@ import "../styles/pages/signin.css"
 import { useNavigate } from "react-router-dom"
 import axios from 'axios';
 
-type InsertClients = {
-  name: string,
-  password: string,
-  username: string,
-  birthday: string,
-  address: string,
-  cpf: string,
-}
-
 const SignIn:React.FC = () => {
 
   const navigate = useNavigate()

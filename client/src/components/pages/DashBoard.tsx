@@ -16,7 +16,7 @@ const DashBoard: React.FC = () => {
         </div>
         <div className="header-menu">
           <Link className="menu-button-operations" to="/in/getoperations">
-            Minhas Operações
+            Operações
           </Link>
           <Link className="menu-button-login" to="/login">
             Login

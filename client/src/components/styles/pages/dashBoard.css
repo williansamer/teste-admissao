@@ -77,16 +77,22 @@ input:hover{
 }
 
 @media screen and (max-width: 760px){
+  .container-dashboard{
+    max-width: 100%;
+  }
   .container-header{
     margin-top: -35px;
     margin-left: -20px;
     margin-right: 0;
     height: 150px;
   }
-  .menu-button-login, .menu-button-signin{
-    font-size: 0.9em;
+  .menu-button-login, .menu-button-signin, .menu-button-operations, .menu-button-edit{
+    font-size: 0.7em;
+    padding: 3px;
+    margin: 2px;
     font-weight: 300;
   }
+
   label{
     font-size: 0.85em;
   }

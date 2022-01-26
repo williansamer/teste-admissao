@@ -29,7 +29,7 @@ model Client {
 
 model Operation {
   id             String   @id @default(uuid())
-  client         Client   @relation(fields: [id_client], references: [id])
+  client         Client   @relation(fields: [id_client], references: [id], onDelete: Cascade)
   name_operation String
   value          Float
   preference     Int

@@ -3,11 +3,13 @@ import "../styles/pages/editClient.css"
 import ModalEmail from '../modals/ModalEmail';
 import ModalPassword from '../modals/ModalPassword';
 import ModalConfirmed from '../modals/ModalConfirmed';
+import ModalDelete from '../modals/ModalDelete';
 
 const EditClient:React.FC= () => {
   const [modalEmail, setModalEmail] = useState<boolean>(false);
   const [modalPassword, setModalPassword] = useState(false);
   const [modalConfirmed, setModalConfirmed] = useState<boolean>(false);
+  const [modalDelete, setModalDelete] = useState(false);
   const [updateEmail, setUpdateEmail] = useState('Alterar');
   const [updatePassword, setUpdatePassword] = useState('Alterar');
 
@@ -24,15 +26,21 @@ const EditClient:React.FC= () => {
     setModalConfirmed(!modalConfirmed);
   }
 
+  function handleModalDelete(e: any){
+    e.preventDefault();
+    setModalDelete(!modalDelete);
+  }
+
   return (
     <section className="edit-container-section">
       {modalEmail && <ModalEmail modalEmail={modalEmail} setModalEmail={setModalEmail} setUpdateEmail={setUpdateEmail}/>}
       {modalPassword && <ModalPassword modalPassword={modalPassword} setModalPassword={setModalPassword} setUpdatePassword={setUpdatePassword}/>}
       {modalConfirmed && <ModalConfirmed modalConfirmed={modalConfirmed} setModalConfirmed={setModalConfirmed}/>}
+      {modalDelete && <ModalDelete modalDelete={modalDelete} setModalDelete={setModalDelete}/>}
       <div className='edit-section-title'>
         Edite os campos que deseja
       </div>
-      <form className='edit-section-form'>
+      <form className='edit-section-form' onSubmit={handleConfirmed}>
         <label className='edit-form-label-email'>
           Email: 
           <div className='edit-label-edit' onClick={handleEditEmail}>{updateEmail}</div>
@@ -53,7 +61,8 @@ const EditClient:React.FC= () => {
           Nascido em: 
           <input className='edit-label-input-birthday' type="date" />
         </label>
-        <input className='edit-form-input-submit' type="submit" value="Confirmar" onClick={handleConfirmed}/>
+        <div className='edit-form-delete' onClick={handleModalDelete}>Deletar Conta</div>
+        <input className='edit-form-input-submit' type="submit" value="Confirmar"/>
       </form>
     </section>
   )
