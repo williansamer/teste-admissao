@@ -33,6 +33,8 @@ model Operation {
   name_operation String
   value          Float
   preference     Int
+  qtt_notes      Int
+  qtt_packages   Int
   opened         Boolean  @default(true)
   reserved       Boolean  @default(false)
   done           Boolean  @default(false)

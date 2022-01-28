@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/pages/dashBoard.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
+import { useCustom } from "../context/hooks/useCustom";
 
 const DashBoard: React.FC = () => {
+
+  const navigate = useNavigate();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const {isLoged, setIsLoged} = useCustom();
+  const [logState, setLogState] = useState<string>();
+
+  useEffect(() => {
+
+    if(isLoged){
+      setLogState("Logout")
+    } else{
+      setLogState("Login")
+    }
+
+  }, [isLoged]);
+
+  function handleLogButton(){
+    if(isLoged){
+      localStorage.removeItem('token')
+      navigate("/")
+      setIsLoged(false)
+    } else{
+      navigate("/login")
+    }
+  }
+
   return (
     <div className="container-dasboard">
       <header className="container-header">
@@ -15,16 +43,16 @@ const DashBoard: React.FC = () => {
           </a>
         </div>
         <div className="header-menu">
-          <Link className="menu-button-operations" to="/in/getoperations">
+          <Link className={isLoged ? "menu-button-operations" : "display-none"} to="/in/getoperations">
             Operações
           </Link>
-          <Link className="menu-button-login" to="/login">
-            Login
-          </Link>
-          <Link className="menu-button-signin" to="/signin">
+          <div onClick={handleLogButton} className="menu-button-login">
+            {logState}
+          </div>
+          <Link className={isLoged ? "display-none" : "menu-button-signin"} to="/signin">
             Cadastrar
           </Link>
-          <Link className="menu-button-edit" to="/editclient">
+          <Link className={isLoged ? "menu-button-edit" : "display-none"} to="/editclient">
             Editar
           </Link>
         </div>

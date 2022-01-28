@@ -3,8 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/pages/login.css"
 import axios from 'axios';
 
+import { useCustom } from "../context/hooks/useCustom";
+
 const Login:React.FC = () => {
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const {setIsLoged} = useCustom();
   const navigate = useNavigate();
   const[getEmail, setEmail] = useState('')
   const[getPassword, setPassword] = useState('')
@@ -26,11 +30,12 @@ const Login:React.FC = () => {
       password: getPassword
     }, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': 'Bearer ' + localStorage.getItem('token') as string,
       }
     }).then(res => {
-      console.log(res.data)
       localStorage.setItem('token', res.data)
+      setIsLoged(true)
       navigate("/in/getoperations"); 
     }).catch(err => {
       alert(err.response.data)

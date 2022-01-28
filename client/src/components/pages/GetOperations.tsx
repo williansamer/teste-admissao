@@ -2,8 +2,11 @@ import React, {useState} from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import "../styles/pages/getOperations.css"
 
+import { useCustom } from '../context/hooks/useCustom';
+
 const GetOperations:React.FC = () => {
 
+  const {getOperations} = useCustom();
   const [listingPackages, setListingPackages] = useState(true);
 
   function handleListingPackages(){
@@ -17,22 +20,16 @@ const GetOperations:React.FC = () => {
   return (
     <section className='getoperation-container-section'>
       <ul className='section-lists'>
-        <Link onClick={handleListingPackages} to={listingPackages ? "/in/getoperations/getpackages" : "/in/getoperations"}><li className='section-listitem'><span>Comprar Moto - R$7600</span> / Valor: R$7600 / Nota: R$100,00 / Qtdd Notas: 76 / Qtdd Pacotes: 2</li></Link>
-        <Outlet />
-        <li className='section-listitem'><span>Reformar Casa - R$5000</span> / Valor: R$5000 / Nota: R$100,00 / Qtdd Notas: 50 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Emprestar - R$1200</span> / Valor: R$1200 / Nota: R$50,00 / Qtdd Notas: 24 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Comprar Moto - R$7600</span> / Valor: R$7600 / Nota: R$100,00 / Qtdd Notas: 76 / Qtdd Pacotes: 2</li>
-        <li className='section-listitem'><span>Reformar Casa - R$5000</span> / Valor: R$5000 / Nota: R$100,00 / Qtdd Notas: 50 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Emprestar - R$1200</span> / Valor: R$1200 / Nota: R$50,00 / Qtdd Notas: 24 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Comprar Moto - R$7600</span> / Valor: R$7600 / Nota: R$100,00 / Qtdd Notas: 76 / Qtdd Pacotes: 2</li>
-        <li className='section-listitem'><span>Reformar Casa - R$5000</span> / Valor: R$5000 / Nota: R$100,00 / Qtdd Notas: 50 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Emprestar - R$1200</span> / Valor: R$1200 / Nota: R$50,00 / Qtdd Notas: 24 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Comprar Moto - R$7600</span> / Valor: R$7600 / Nota: R$100,00 / Qtdd Notas: 76 / Qtdd Pacotes: 2</li>
-        <li className='section-listitem'><span>Reformar Casa - R$5000</span> / Valor: R$5000 / Nota: R$100,00 / Qtdd Notas: 50 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Emprestar - R$1200</span> / Valor: R$1200 / Nota: R$50,00 / Qtdd Notas: 24 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Comprar Moto - R$7600</span> / Valor: R$7600 / Nota: R$100,00 / Qtdd Notas: 76 / Qtdd Pacotes: 2</li>
-        <li className='section-listitem'><span>Reformar Casa - R$5000</span> / Valor: R$5000 / Nota: R$100,00 / Qtdd Notas: 50 / Qtdd Pacotes: 1</li>
-        <li className='section-listitem'><span>Emprestar - R$1200</span> / Valor: R$1200 / Nota: R$50,00 / Qtdd Notas: 24 / Qtdd Pacotes: 1</li>
+        {getOperations.map((operation, index) =>{ 
+          return (
+              <Link key={index} onClick={handleListingPackages} to={listingPackages ? "/in/getoperations/getpackages" : "/in/getoperations"}>
+                <li className='section-listitem'>
+                  <span>{operation.name_operation} - R$ {operation.value}</span> / Valor: R$ {operation.value} / Nota: R$ {operation.preference} / Qtdd Notas: {operation.qtt_notes} / Qtdd Pacotes: {operation.qtt_packages}
+                  < Outlet key={operation.id} />
+                </li>
+              </Link>
+          )
+        })}
       </ul>
     </section>
   )

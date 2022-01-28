@@ -17,6 +17,12 @@
   align-items: center;
 }
 
+.header-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .header-logo{
   height: 100%;
 }
@@ -74,6 +80,10 @@ input:hover{
   background-color: #ffffff;
   border: solid 1px #0c4873;
   box-shadow: 2px 2px 2px #5883a1;
+}
+
+.display-none{
+  display: none;
 }
 
 @media screen and (max-width: 760px){

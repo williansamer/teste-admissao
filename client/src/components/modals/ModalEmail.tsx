@@ -13,6 +13,7 @@ const ModalEmail: React.FC<PropsModalEmail> = (props) => {
   const [getOldEmail, setOldEmail] = useState('')
   const [getEmail, setEmail] = useState('')
   const [getRemail, setRemail] = useState('')
+  const [getPassword, setPassword] = useState('')
 
   function handleOldEmailText(event: React.ChangeEvent<HTMLInputElement>){
     event.preventDefault()
@@ -26,6 +27,10 @@ const ModalEmail: React.FC<PropsModalEmail> = (props) => {
     event.preventDefault()
     setRemail(event.target.value)
   }
+  function handlePasswordText(event: React.ChangeEvent<HTMLInputElement>){
+    event.preventDefault()
+    setPassword(event.target.value)
+  }
 
   function handleCloseModal(){
     props.setModalEmail(!props.modalEmail);
@@ -33,21 +38,26 @@ const ModalEmail: React.FC<PropsModalEmail> = (props) => {
 
   async function handleSubmitModal(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault();
-    const oldEmail = await axios.get('http://localhost:3001/authClient', {
+/*     const oldEmail = await axios.get('http://localhost:3001/authClient', {
       data:{
-        username: getOldEmail
+        username: getOldEmail,
+        password: getPassword
       }
     })
-    if(getEmail === getRemail && oldEmail){
+    console.log(oldEmail) */
+    if(getEmail === getRemail){
       props.setUpdateEmail(getEmail)
       props.setModalEmail(!props.modalEmail);
       await axios.put('http://localhost:3001/updateClient', {
-        header: {
-          'Content-Type': 'application/json',
-          'authorization': 'Bearer ' + localStorage.getItem('token'),
+          username: getRemail,
+          password: getPassword
         },
-        username: getRemail,
-      }).then(res => {
+        {
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': 'Bearer ' + localStorage.getItem('token') as string,
+        }}
+      ).then(res => {
         alert("Email alterado com sucesso!")
       }).catch(err => {
         alert(err.response.data)
@@ -66,7 +76,7 @@ const ModalEmail: React.FC<PropsModalEmail> = (props) => {
         <input className="modalEmail-form-input" type="email" placeholder="digite o email ANTIGO" onChange={handleOldEmailText} value={getOldEmail} required/>
         <input className="modalEmail-form-input" type="email" placeholder="digite o email NOVO" onChange={handleEmailText} value={getEmail} required />
         <input className="modalEmail-form-input" type="email" placeholder="digite o email NOVO novamente" onChange={handleRemailText} value={getRemail} required />
-        <input className="modalEmail-form-input" type="password" placeholder="digite a senha" required />
+        <input className="modalEmail-form-input" type="password" placeholder="digite a senha" onChange={handlePasswordText} value={getPassword} required />
         <input className='edit-form-input-submit modalEmail-edit-form-input-submit' type="submit" value="Confirmar"/>
       </form>
     </section>

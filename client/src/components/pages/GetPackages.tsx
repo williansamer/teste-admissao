@@ -1,7 +1,10 @@
 import React from 'react';
 import "../styles/pages/getPackages.css"
 
-const GetPackages:React.FC = () => {
+const GetPackages:React.FC= (props) => {
+
+  // console.log(props)
+
   return (
     <section className="getpackages-container-section">
       <div className='section-package'>

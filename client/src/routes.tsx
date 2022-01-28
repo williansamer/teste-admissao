@@ -11,6 +11,7 @@ import SignIn from './components/pages/SignIn';
 import GetClients from './components/pages/GetClients';
 
 const mainRoutes: React.FC = () => {
+
   return (
     <Routes>
       <Route path="/" element={<DashBoard />}>
