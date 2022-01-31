@@ -36,19 +36,12 @@ const ModalEmail: React.FC<PropsModalEmail> = (props) => {
     props.setModalEmail(!props.modalEmail);
   }
 
-  async function handleSubmitModal(e: React.FormEvent<HTMLFormElement>){
+  function handleSubmitModal(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault();
-/*     const oldEmail = await axios.get('http://localhost:3001/authClient', {
-      data:{
-        username: getOldEmail,
-        password: getPassword
-      }
-    })
-    console.log(oldEmail) */
     if(getEmail === getRemail){
       props.setUpdateEmail(getEmail)
       props.setModalEmail(!props.modalEmail);
-      await axios.put('http://localhost:3001/updateClient', {
+      axios.put('http://localhost:3001/updateClient', {
           username: getRemail,
           password: getPassword
         },

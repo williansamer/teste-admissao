@@ -7,9 +7,8 @@ import { useCustom } from "../context/hooks/useCustom";
 
 const Login:React.FC = () => {
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const {setIsLoged} = useCustom();
   const navigate = useNavigate();
+  const { setUser } = useCustom();
   const[getEmail, setEmail] = useState('')
   const[getPassword, setPassword] = useState('')
 
@@ -23,9 +22,9 @@ const Login:React.FC = () => {
     setPassword(event.target.value)
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>){
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>){
     e.preventDefault();
-    await axios.post('http://localhost:3001/authClient', {
+    axios.post('http://localhost:3001/authClient', {
       username: getEmail,
       password: getPassword
     }, {
@@ -35,7 +34,6 @@ const Login:React.FC = () => {
       }
     }).then(res => {
       localStorage.setItem('token', res.data)
-      setIsLoged(true)
       navigate("/in/getoperations"); 
     }).catch(err => {
       alert(err.response.data)

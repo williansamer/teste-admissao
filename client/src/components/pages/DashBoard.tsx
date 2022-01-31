@@ -8,7 +8,7 @@ const DashBoard: React.FC = () => {
 
   const navigate = useNavigate();
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const {isLoged, setIsLoged} = useCustom();
+  const {isLoged, setIsLoged, user} = useCustom();
   const [logState, setLogState] = useState<string>();
 
   useEffect(() => {
@@ -41,6 +41,9 @@ const DashBoard: React.FC = () => {
               alt="logo"
             />
           </a>
+          <h1>
+            {isLoged && user}
+          </h1>
         </div>
         <div className="header-menu">
           <Link className={isLoged ? "menu-button-operations" : "display-none"} to="/in/getoperations">

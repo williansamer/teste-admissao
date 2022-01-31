@@ -32,7 +32,7 @@ const InsertOperations: React.FC = () => {
       setQttNote(amountNotes);
       setQttPackage(Math.ceil(amountPackages));
     }
-    setPreference(e.target.value);
+    setPreference(parseInt(e.target.value));
   }
 
   function handleSubmit(e: any) {

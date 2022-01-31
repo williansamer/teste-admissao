@@ -3,7 +3,7 @@ import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient
 import { AuthenticateClientController } from "./modules/account/client/AuthenticateClientController";
 import { CreateClientController } from "./modules/clients/useCases/createClient/CreateClientController";
 import { DeleteClientController } from "./modules/clients/useCases/deleteClient/DeleteClientController";
-import { ShowClientController } from "./modules/clients/useCases/showClient/ShowClientController";
+import { ShowAllClientsController } from "./modules/clients/useCases/showAllClients/ShowAllClientsController";
 import { UpdateClientController } from "./modules/clients/useCases/updateClient/UpdateClientController";
 import { CreateOperationController } from "./modules/operations/useCases/createOperation/CreateOperationController";
 import { ShowOperationController } from "./modules/operations/useCases/showOperation/ShowOperationController";
@@ -12,10 +12,12 @@ import { CreatePackageController } from "./modules/packages/useCases/createPacka
 import { ShowAllPackagesFromOperationController } from "./modules/packages/useCases/showAllPackagesFromOperation/ShowAllPackagesFromOperationController";
 import { EndPackageController } from "./modules/packages/useCases/endPackage/EndPackageController";
 import { DeleteOperationController } from "./modules/operations/useCases/deleteOperation/DeleteOperationController";
+import { GetOneClientController } from "./modules/clients/useCases/getOneClient/GetOneClientController";
 
 const routes = Router();
 
-routes.get("/showClients", new ShowClientController().handle)
+routes.get("/showAllClients", new ShowAllClientsController().handle)
+routes.get("/getOneClient", ensureAuthenticateClient, new GetOneClientController().handle)
 routes.get("/showOperations", ensureAuthenticateClient , new ShowOperationController().handle)
 routes.get("/showAllPackagesClient", ensureAuthenticateClient , new ShowAllPackagesFromClientController().handle)
 routes.get("/showAllPackagesOperation/:id", ensureAuthenticateClient , new ShowAllPackagesFromOperationController().handle)

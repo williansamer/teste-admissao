@@ -13,6 +13,7 @@ type GetOperations = {
 const useCustom = () => {
 
   const [isLoged, setIsLoged] = useState(false);
+  const [user, setUser] = useState<string>('');
   const [getOperations, setGetOperations] = useState<GetOperations[]>([]);
 
   useEffect(() => {
@@ -22,8 +23,7 @@ const useCustom = () => {
   }, []);
 
   useEffect(() => {
-
-    // console.log(isLoged , "useCustom")
+  
     if(localStorage.getItem('token')){
       setIsLoged(true)
       axios.get('http://localhost:3001/showOperations', {
@@ -38,11 +38,11 @@ const useCustom = () => {
     } else{
       setIsLoged(false)
     }
-  }, [isLoged]);
+  }, [localStorage.getItem('token')]);
 
   // console.log(getOperations)
 
-  return {isLoged, setIsLoged, getOperations, setGetOperations};
+  return {isLoged, setIsLoged, getOperations, setGetOperations, user, setUser};
 };
 
 export { useCustom };

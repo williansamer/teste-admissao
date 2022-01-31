@@ -16,7 +16,7 @@ const GetClients: React.FC = ()=>{
 
   const [clients, setClients] = useState<ShowClients[]>([]);
 
-  axios.get('http://localhost:3001/showClients').then(res => {
+  axios.get('http://localhost:3001/showAllClients').then(res => {
     setClients(res.data);
   });
 
