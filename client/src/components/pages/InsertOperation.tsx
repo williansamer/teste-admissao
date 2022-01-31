@@ -36,7 +36,7 @@ const InsertOperations: React.FC = () => {
   }
 
   function handleSubmit(e: any) {
-    e.preventDefault();
+    //e.preventDefault();
     if (nameOperation && getValue && preference && qttNote && qttPackage) {
       const rest = getValue % 100;
       if (rest !== 0) {
