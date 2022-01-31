@@ -37,7 +37,7 @@ const DashBoard: React.FC = () => {
         <div className="header-logo">
           <a href="/">
             <img
-              src="https://cdn.frentecorretora.com.br/2018/11/22221040/Logo-Frente-1.png"
+              src="../../logo/logo2.png"
               alt="logo"
             />
           </a>

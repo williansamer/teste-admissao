@@ -5,22 +5,14 @@ const Home: React.FC = () => {
   return (
     <section className="home-container-section">
       <img
-        src="https://cdn.frentecorretora.com.br/2020/01/15191001/about_frente_mobile.png"
+        src="../../logo/logo.png"
         alt="imagem"
       />
       <div className="section-about">
         <div className="about-subtitle">Our Story</div>
         <div className="about-title">Who are we and how did we get here?</div>
         <div className="about-description">
-          A <strong>Frente</strong> é uma <strong>Corretora de Câmbio Digital</strong>, que alia tecnologia à
-          experiência de profissionais com carreira consolidada no mercado
-          financeiro. Trabalhamos de maneira incansável todos os dias para
-          proporcionar a você o que há de mais moderno, seguro e acessível
-          para tornar a sua experiência de câmbio inigualável. Nosso maior
-          propósito é crescer junto com os nossos clientes. Queremos ser o seu
-          melhor parceiro, capaz de atender às suas demandas e superar todas
-          as suas expectativas e desafios, em um mundo que se transforma cada
-          vez mais rapidamente.
+          A <strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </div>
     </section>
